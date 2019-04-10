@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "none",
+    "module": "umd",
     "target": "es5"
   },
   "exclude": [

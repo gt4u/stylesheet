@@ -1,6 +1,18 @@
-var StyleSheets = /** @class */ (function () {
-    function StyleSheets() {
-        this.addStyleSheetRules = function (rules, styleId) {
+(function (factory) {
+    if (typeof module === "object" && typeof module.exports === "object") {
+        var v = factory(require, exports);
+        if (v !== undefined) module.exports = v;
+    }
+    else if (typeof define === "function" && define.amd) {
+        define(["require", "exports"], factory);
+    }
+})(function (require, exports) {
+    "use strict";
+    Object.defineProperty(exports, "__esModule", { value: true });
+    var StyleSheets = /** @class */ (function () {
+        function StyleSheets() {
+        }
+        StyleSheets.addStyleSheetRules = function (rules, styleId) {
             if (styleId === void 0) { styleId = 'gt4u_style'; }
             var $style = $("#" + styleId)[0] || $("<style id=\"" + styleId + "\"></style>").appendTo('head')[0];
             var styleSheet = $style.sheet;
@@ -13,7 +25,7 @@ var StyleSheets = /** @class */ (function () {
             });
             return styleSheet;
         };
-        return this;
-    }
-    return StyleSheets;
-}());
+        return StyleSheets;
+    }());
+    exports.StyleSheets = StyleSheets;
+});
