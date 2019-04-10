@@ -1,5 +1,3 @@
-"use strict";
-var $ = require("jquery");
 var StyleSheets = /** @class */ (function () {
     function StyleSheets() {
         this.addStyleSheetRules = function (rules, styleId) {
@@ -19,4 +17,3 @@ var StyleSheets = /** @class */ (function () {
     }
     return StyleSheets;
 }());
-module.exports = StyleSheets;

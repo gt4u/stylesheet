@@ -1,4 +1,4 @@
-import $ = require("jquery");
+declare var $:any;
 
 class StyleSheets {
 
@@ -31,5 +31,3 @@ class StyleSheets {
     }
 
 }
-
-export = StyleSheets;
