@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es3"
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
