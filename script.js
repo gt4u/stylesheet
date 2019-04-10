@@ -1,10 +1,9 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var $ = require("jquery");
 var StyleSheets = /** @class */ (function () {
     function StyleSheets() {
         this.addStyleSheetRules = function (rules, styleId) {
-            if (styleId === void 0) { styleId = 'gt4u_styles'; }
+            if (styleId === void 0) { styleId = 'gt4u_style'; }
             var $style = $("#" + styleId)[0] || $("<style id=\"" + styleId + "\"></style>").appendTo('head')[0];
             var styleSheet = $style.sheet;
             $.each(rules, function (selector, styles) {
@@ -16,6 +15,8 @@ var StyleSheets = /** @class */ (function () {
             });
             return styleSheet;
         };
+        return this;
     }
     return StyleSheets;
 }());
+module.exports = StyleSheets;

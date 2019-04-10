@@ -2,7 +2,7 @@ import $ = require("jquery");
 
 class StyleSheets {
 
-    public addStyleSheetRules = (rules, styleId = 'gt4u_styles') => {
+    public addStyleSheetRules = (rules, styleId = 'gt4u_style') => {
 
         let $style = $(`#${styleId}`)[0] || $(`<style id="${styleId}"></style>`).appendTo('head')[0];
 
@@ -24,6 +24,12 @@ class StyleSheets {
 
         return styleSheet;
 
+    };
+
+    public constructor() {
+        return this;
     }
 
 }
+
+export = StyleSheets;
