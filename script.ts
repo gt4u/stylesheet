@@ -22,7 +22,7 @@ export = class StyleSheets {
 
         return styleSheet;
 
-    };
+    }
 
     private static getStyleElement(styleId = 'gt4u_style') {
 
@@ -38,7 +38,7 @@ export = class StyleSheets {
 
     private static getStyleSheet(styleId = null) {
 
-        return $(StyleSheets.getStyleElement(styleId)).sheet;
+        return $(StyleSheets.getStyleElement(styleId))[0].sheet;
 
     }
 

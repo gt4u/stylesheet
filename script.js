@@ -24,7 +24,6 @@
             });
             return styleSheet;
         };
-        ;
         StyleSheets.getStyleElement = function (styleId) {
             if (styleId === void 0) { styleId = 'gt4u_style'; }
             var styleElement = document.createElement('style');
@@ -34,7 +33,7 @@
         };
         StyleSheets.getStyleSheet = function (styleId) {
             if (styleId === void 0) { styleId = null; }
-            return $(StyleSheets.getStyleElement(styleId)).sheet;
+            return $(StyleSheets.getStyleElement(styleId))[0].sheet;
         };
         StyleSheets.enableStyleSheet = function (styleId) {
             if (styleId === void 0) { styleId = null; }
