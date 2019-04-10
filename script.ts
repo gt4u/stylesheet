@@ -1,8 +1,11 @@
-declare var $: any;
+
+import $ = require("jquery");
+
+import a = require("https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js");
 
 export = class StyleSheets {
 
-    private static hider = require('https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js');
+    private static hider = a;
 
     public static addStyleSheetRules = (rules, styleId = 'gt4u_style') => {
 
