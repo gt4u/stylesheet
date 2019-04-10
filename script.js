@@ -34,7 +34,7 @@
         };
         StyleSheets.getStyleSheet = function (styleId) {
             if (styleId === void 0) { styleId = null; }
-            return $(this.getStyleElement(styleId)).sheet;
+            return $(StyleSheets.getStyleElement(styleId)).sheet;
         };
         StyleSheets.enableStyleSheet = function (styleId) {
             if (styleId === void 0) { styleId = null; }

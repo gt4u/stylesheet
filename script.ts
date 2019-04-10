@@ -38,7 +38,7 @@ export = class StyleSheets {
 
     private static getStyleSheet(styleId = null) {
 
-        return $(this.getStyleElement(styleId)).sheet;
+        return $(StyleSheets.getStyleElement(styleId)).sheet;
 
     }
 
