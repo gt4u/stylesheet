@@ -8,26 +8,42 @@
     }
 })(function (require, exports) {
     "use strict";
-    var _a;
     var $ = require("jquery");
-    return (_a = /** @class */ (function () {
-            function StyleSheets() {
-            }
-            return StyleSheets;
-        }()),
-        _a.addStyleSheetRules = function (rules, styleId) {
-            if (styleId === void 0) { styleId = 'gt4u_style'; }
-            var $style = $("#" + styleId)[0] || $("<style id=\"" + styleId + "\"></style>").appendTo('head')[0];
-            var styleSheet = $style.sheet;
+    return /** @class */ (function () {
+        function StyleSheets() {
+        }
+        StyleSheets.addStyleSheetRules = function (rules, styleId) {
+            if (styleId === void 0) { styleId = null; }
+            var styleSheet = StyleSheets.getStyleSheet(styleId);
             $.each(rules, function (selector, styles) {
                 var propStr = '';
                 $.each(styles, function (property, style) {
-                    propStr += property + ": " + style + ";\n";
+                    propStr += String(property) + ": " + style + ";\n";
                 });
-                styleSheet.insertRule(selector + " {" + propStr + "}", styleSheet.cssRules.length);
+                styleSheet.insertRule(String(selector) + " {" + propStr + "}", styleSheet.cssRules.length);
             });
             return styleSheet;
-        },
-        _a.getJQuery = function () { return $; },
-        _a);
+        };
+        ;
+        StyleSheets.getStyleElement = function (styleId) {
+            if (styleId === void 0) { styleId = 'gt4u_style'; }
+            var styleElement = document.createElement('style');
+            styleElement.setAttribute('id', styleId);
+            document.getElementsByTagName("head")[0].appendChild(styleElement);
+            return styleElement;
+        };
+        StyleSheets.getStyleSheet = function (styleId) {
+            if (styleId === void 0) { styleId = null; }
+            return $(this.getStyleElement(styleId)).sheet;
+        };
+        StyleSheets.enableStyleSheet = function (styleId) {
+            if (styleId === void 0) { styleId = null; }
+            StyleSheets.getStyleSheet(styleId).disabled = false;
+        };
+        StyleSheets.disableStyleSheet = function (styleId) {
+            if (styleId === void 0) { styleId = null; }
+            StyleSheets.getStyleSheet(styleId).disabled = true;
+        };
+        return StyleSheets;
+    }());
 });

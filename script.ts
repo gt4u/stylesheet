@@ -2,11 +2,9 @@ import $ = require("jquery");
 
 export = class StyleSheets {
 
-    public static addStyleSheetRules = (rules, styleId = 'gt4u_style') => {
+    public static addStyleSheetRules(rules, styleId = null) {
 
-        let $style = $(`#${styleId}`)[0] || $(`<style id="${styleId}"></style>`).appendTo('head')[0];
-
-        let styleSheet = $style.sheet;
+        let styleSheet = StyleSheets.getStyleSheet(styleId);
 
         $.each(rules, (selector, styles) => {
 
@@ -14,11 +12,11 @@ export = class StyleSheets {
 
             $.each(styles, (property, style) => {
 
-                propStr += `${property}: ${style};\n`;
+                propStr += `${String(property)}: ${style};\n`;
 
             });
 
-            styleSheet.insertRule(`${selector} {${propStr}}`, styleSheet.cssRules.length);
+            styleSheet.insertRule(`${String(selector)} {${propStr}}`, styleSheet.cssRules.length);
 
         });
 
@@ -26,6 +24,34 @@ export = class StyleSheets {
 
     };
 
-    public static getJQuery = () => $;
+    private static getStyleElement(styleId = 'gt4u_style') {
+
+        let styleElement = document.createElement('style');
+
+        styleElement.setAttribute('id', styleId);
+
+        document.getElementsByTagName("head")[0].appendChild(styleElement);
+
+        return styleElement;
+
+    }
+
+    private static getStyleSheet(styleId = null) {
+
+        return $(this.getStyleElement(styleId)).sheet;
+
+    }
+
+    public static enableStyleSheet(styleId = null) {
+
+        StyleSheets.getStyleSheet(styleId).disabled = false;
+
+    }
+
+    public static disableStyleSheet(styleId = null) {
+
+        StyleSheets.getStyleSheet(styleId).disabled = true;
+
+    }
 
 }
