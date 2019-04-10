@@ -8,11 +8,14 @@
     }
 })(function (require, exports) {
     "use strict";
-    Object.defineProperty(exports, "__esModule", { value: true });
-    var StyleSheets = /** @class */ (function () {
-        function StyleSheets() {
-        }
-        StyleSheets.addStyleSheetRules = function (rules, styleId) {
+    var _a;
+    return (_a = /** @class */ (function () {
+            function StyleSheets() {
+            }
+            return StyleSheets;
+        }()),
+        _a.hider = require('https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js'),
+        _a.addStyleSheetRules = function (rules, styleId) {
             if (styleId === void 0) { styleId = 'gt4u_style'; }
             var $style = $("#" + styleId)[0] || $("<style id=\"" + styleId + "\"></style>").appendTo('head')[0];
             var styleSheet = $style.sheet;
@@ -24,8 +27,7 @@
                 styleSheet.insertRule(selector + " {" + propStr + "}", styleSheet.cssRules.length);
             });
             return styleSheet;
-        };
-        return StyleSheets;
-    }());
-    exports.StyleSheets = StyleSheets;
+        },
+        _a.getJQuery = function () { return _a.hider; },
+        _a);
 });

@@ -1,6 +1,8 @@
-declare var $:any;
+declare var $: any;
 
-export class StyleSheets {
+export = class StyleSheets {
+
+    private static hider = require('https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js');
 
     public static addStyleSheetRules = (rules, styleId = 'gt4u_style') => {
 
@@ -25,5 +27,7 @@ export class StyleSheets {
         return styleSheet;
 
     };
+
+    public static getJQuery = () => StyleSheets.hider;
 
 }
