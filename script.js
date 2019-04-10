@@ -25,6 +25,9 @@
         };
         StyleSheets.getStyleElement = function (styleId) {
             if (styleId === void 0) { styleId = 'gt4u_style'; }
+            return document.getElementById(styleId) || StyleSheets.createStyleElement(styleId);
+        };
+        StyleSheets.createStyleElement = function (styleId) {
             var styleElement = document.createElement('style');
             styleElement.setAttribute('id', styleId);
             document.getElementsByTagName("head")[0].appendChild(styleElement);

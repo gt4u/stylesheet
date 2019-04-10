@@ -24,7 +24,13 @@ export = class StyleSheets {
 
     }
 
-    private static getStyleElement(styleId = 'gt4u_style') {
+    public static getStyleElement(styleId = 'gt4u_style') {
+
+        return document.getElementById(styleId) || StyleSheets.createStyleElement(styleId);
+
+    }
+
+    public static createStyleElement(styleId) {
 
         let styleElement = document.createElement('style');
 
@@ -36,7 +42,7 @@ export = class StyleSheets {
 
     }
 
-    private static getStyleSheet(styleId) {
+    public static getStyleSheet(styleId) {
 
         return $(StyleSheets.getStyleElement(styleId))[0].sheet;
 
