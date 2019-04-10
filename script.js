@@ -4,19 +4,17 @@
         if (v !== undefined) module.exports = v;
     }
     else if (typeof define === "function" && define.amd) {
-        define(["require", "exports", "jquery", "https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js"], factory);
+        define(["require", "exports", "jquery"], factory);
     }
 })(function (require, exports) {
     "use strict";
     var _a;
     var $ = require("jquery");
-    var a = require("https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js");
     return (_a = /** @class */ (function () {
             function StyleSheets() {
             }
             return StyleSheets;
         }()),
-        _a.hider = a,
         _a.addStyleSheetRules = function (rules, styleId) {
             if (styleId === void 0) { styleId = 'gt4u_style'; }
             var $style = $("#" + styleId)[0] || $("<style id=\"" + styleId + "\"></style>").appendTo('head')[0];
@@ -30,6 +28,6 @@
             });
             return styleSheet;
         },
-        _a.getJQuery = function () { return _a.hider; },
+        _a.getJQuery = function () { return $; },
         _a);
 });
