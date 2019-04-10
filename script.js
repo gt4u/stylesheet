@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var $ = require("jquery");
 var StyleSheets = /** @class */ (function () {
     function StyleSheets() {
