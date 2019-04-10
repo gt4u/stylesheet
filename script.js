@@ -13,7 +13,6 @@
         function StyleSheets() {
         }
         StyleSheets.addStyleSheetRules = function (rules, styleId) {
-            if (styleId === void 0) { styleId = null; }
             var styleSheet = StyleSheets.getStyleSheet(styleId);
             $.each(rules, function (selector, styles) {
                 var propStr = '';
@@ -32,15 +31,12 @@
             return styleElement;
         };
         StyleSheets.getStyleSheet = function (styleId) {
-            if (styleId === void 0) { styleId = null; }
             return $(StyleSheets.getStyleElement(styleId))[0].sheet;
         };
         StyleSheets.enableStyleSheet = function (styleId) {
-            if (styleId === void 0) { styleId = null; }
             StyleSheets.getStyleSheet(styleId).disabled = false;
         };
         StyleSheets.disableStyleSheet = function (styleId) {
-            if (styleId === void 0) { styleId = null; }
             StyleSheets.getStyleSheet(styleId).disabled = true;
         };
         return StyleSheets;

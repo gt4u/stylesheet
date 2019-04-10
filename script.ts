@@ -2,7 +2,7 @@ import $ = require("jquery");
 
 export = class StyleSheets {
 
-    public static addStyleSheetRules(rules, styleId = null) {
+    public static addStyleSheetRules(rules, styleId) {
 
         let styleSheet = StyleSheets.getStyleSheet(styleId);
 
@@ -36,19 +36,19 @@ export = class StyleSheets {
 
     }
 
-    private static getStyleSheet(styleId = null) {
+    private static getStyleSheet(styleId) {
 
         return $(StyleSheets.getStyleElement(styleId))[0].sheet;
 
     }
 
-    public static enableStyleSheet(styleId = null) {
+    public static enableStyleSheet(styleId) {
 
         StyleSheets.getStyleSheet(styleId).disabled = false;
 
     }
 
-    public static disableStyleSheet(styleId = null) {
+    public static disableStyleSheet(styleId) {
 
         StyleSheets.getStyleSheet(styleId).disabled = true;
 
