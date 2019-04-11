@@ -38,13 +38,13 @@ export = class StyleSheets {
 
         document.getElementsByTagName("head")[0].appendChild(styleElement);
 
-        return styleElement;
+        return $(StyleSheets.getStyleElement(styleId))[0];
 
     }
 
     public static getStyleSheet(styleId) {
 
-        return $(StyleSheets.getStyleElement(styleId))[0].sheet;
+        return StyleSheets.getStyleElement(styleId).sheet;
 
     }
 

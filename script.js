@@ -31,10 +31,10 @@
             var styleElement = document.createElement('style');
             styleElement.setAttribute('id', styleId);
             document.getElementsByTagName("head")[0].appendChild(styleElement);
-            return styleElement;
+            return $(StyleSheets.getStyleElement(styleId))[0];
         };
         StyleSheets.getStyleSheet = function (styleId) {
-            return $(StyleSheets.getStyleElement(styleId))[0].sheet;
+            return StyleSheets.getStyleElement(styleId).sheet;
         };
         StyleSheets.enableStyleSheet = function (styleId) {
             StyleSheets.getStyleSheet(styleId).disabled = false;
